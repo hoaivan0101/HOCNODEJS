@@ -1,0 +1,193 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+a{
+    color: #fff;
+
+}
+
+.header{
+    min-height: 50px;
+    background-color: #f53d2d;
+    font-size: 10px;
+    justify-content: space-between;
+    display: flex;
+    padding-top: 10px;
+
+}
+
+.inf1{
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 300;
+    padding: 0 .4375rem;
+    border-right: 2px solid hsla(0,0%,100%,.22);
+}
+
+.inf1end{
+    border: none;
+}
+
+.far .fa-bell{
+    margin-right: 2px;
+}
+
+
+
+.subhead{
+    min-height: 80px;
+    background-image: linear-gradient(-180deg,#f53d2d,#f63);
+    background-image: webkit-gradient(linear,left top,left bottom,from(#f53d2d),to(#f63));
+    display: flex;
+}
+
+.shopeeicon{
+  width: 200px;
+  color: white;
+  text-align: center;
+  line-height: 70px;
+  font-size: 30px;
+}
+
+.navbar1{
+    width: 80%;
+    display: block;
+}
+
+.mainnavbar{
+    height: 70%;
+}
+
+.subbar{
+    height: 30%;
+    background-color: tomato;
+    display: flex;
+    justify-content: space-between;
+}
+
+.subbartext{
+    color: white;
+    font-size: 13px;
+}
+
+.shoppingicon{
+    width: 10%;
+    color: white;
+    font-size: 35px;
+    text-align: center;
+    line-height: inherit;
+}
+
+.form-inline{
+    width: 100%;
+    text-align: right;
+}
+
+.form-inline .form-control{
+    width: 90%;
+    border: none;
+    background-color: #f8f9fa !important;
+}
+
+.btn{
+    color: white;
+    background-color: orange;
+}
+
+/* Main */
+
+.main{
+    margin-top: 20px;
+    display:flex;
+}
+
+.Left-pane{
+    width: 70%;
+    padding-right: 10px;
+}
+
+.right-pane{
+    width: 30%;
+    display: block;
+}
+
+.right-pane-top{
+    height: 50%;
+    background-image: url("https://cf.shopee.vn/file/6c9e840d2d52c84dbf149df3ca820f0d_xhdpi");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.right-pane-bottom{
+    height: 50%;
+    background-image: url("https://cf.shopee.vn/file/30cf95088671c42bd2a3adc4bd04f563_xhdpi");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+
+/* End of Main */
+/* -------------------------- */
+/* Backcontent */
+
+.backcontent{
+    min-height: 100px;
+    display: flex;
+    font-size: 10px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.box1{
+    width: 15%;
+    display: block;
+}
+
+.box-top{
+    height: 70%;
+    background-image: url("https://cf.shopee.vn/file/7e062c634bd67ce1c78096160f0a920b_xhdpi");
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position:bottom;
+}
+
+.back2{
+    background-image: url("https://cf.shopee.vn/file/2663ba288219a0907d990fcb4b52740b_xxhdpi");
+}
+
+.back3{
+    background-image: url("https://cf.shopee.vn/file/07ee4296b0a33885418670f2e3ffeca0_xxhdpi");
+}
+.back4{
+    background-image: url("https://cf.shopee.vn/file/a08ab28962514a626195ef0415411585_xxhdpi");
+}
+.back5{
+    background-image: url("https://cf.shopee.vn/file/c68804e5aaad26526093bb863fc96fd3_xxhdpi");
+}
+.back6{
+    background-image: url("https://cf.shopee.vn/file/1b59f9a2be305085f31f123c9f336259_xxhdpi");
+}
+.back7{
+    background-image: url("https://cf.shopee.vn/file/16f5dd1348f2a30d3bd83bf2c7e9e682_xxhdpi");
+}
+
+.box-bottom{
+    text-align: center;
+}
+
+/* End of Backcontent 
+-----------------------------*/
+/* Footer */
+.footer{
+    width: 100%;
+    height: 100px;
+}
+
+.footer img{
+    width: 100%;
+}

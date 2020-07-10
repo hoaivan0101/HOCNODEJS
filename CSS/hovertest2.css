@@ -1,0 +1,32 @@
+ul{
+    display: flex;
+}
+ul li{
+    width: 100px;
+    height: 30px;
+    list-style: none;
+    background-color: coral;
+    font-family: fantasy;
+    text-align: center;
+}
+
+ul.cent{
+    display:block;
+    margin: 0px;
+    padding: 0px;
+    background-color: crimson;
+}
+.child{
+    background-color: darkblue;
+}
+
+ul li:hover{
+    background-color: darkkhaki;
+}
+
+ul.cent{
+    display:none;
+}
+ul li:hover .cent{
+    display:block;
+}

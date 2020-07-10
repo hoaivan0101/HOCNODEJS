@@ -1,0 +1,22 @@
+p 
+    b Press Key to Find Users
+form(action='./FindUsers', method='GET')
+  input(type='text', name='d')
+
+table
+ each index of Users
+  tr
+    td
+      p
+        b User Name = 
+    td= index.name
+    td
+      p
+        b User Email = 
+    td= index.email
+    td
+      p
+        b User Id = 
+    td= index.id
+
+a(href='./') Back Home

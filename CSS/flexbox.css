@@ -1,0 +1,60 @@
+
+body{
+    padding: 0px;
+    margin: 0px;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+    height: 100px;    
+}
+
+.class1{
+    background-color: yellow;
+    width: 100px;
+    flex-grow: 1;
+}
+
+.class2{
+    background-color: tomato;
+    width: 200px;
+    flex-grow: 5;
+}
+.class3{
+    background-color: turquoise;
+    width: 100px;
+    flex-grow: 1;
+    background-image: url(../Picture/ảnh\ rừng.jpg);
+    background-size: cover;
+}
+
+
+.imgbackground{
+color: blanchedalmond;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+display: flex;
+align-items: flex-end;
+height: 100%;
+}
+
+.song{
+    display: flex;
+    height: 100px;
+    text-align: center;
+    align-items: center;
+}
+.stt{
+    width: 100px;
+    flex-grow: 1;
+    font-size: 60px;
+}
+.info{
+    width: 300px;
+    flex-grow: 5;
+}
+
+.view{
+    width: 50px;
+    flex-grow: 1;
+}

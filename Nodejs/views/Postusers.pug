@@ -1,0 +1,13 @@
+form(action='/Users/search', method='GET')
+  input(type='text' name='q')
+  button Search
+
+ul
+    for index of Users
+       li=index.name + ' ' + index.email
+
+a(href='../') Home
+br
+a(href='/Users/Create') Create
+br
+a(href='/Users/Login') Login

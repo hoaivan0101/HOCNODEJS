@@ -1,0 +1,16 @@
+h1(style='background-color:blue') LISTS
+br
+
+form(action='/Users/search', method='GET')
+  input(type='text' name='q')
+  button Search
+
+//- ul
+//-   li #{Users[0].name}
+//-   li #{Users[0].age}
+ol
+  each index in Users
+    li= index.name +' '+ index.age
+a(href='./') Back
+
+

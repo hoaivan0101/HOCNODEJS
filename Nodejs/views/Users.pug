@@ -1,0 +1,20 @@
+table
+ each index of Users
+  tr
+    td
+      p
+        b User Name = 
+    td= index.name
+    td
+      p
+        b User Email = 
+    td= index.email
+    td
+      p
+        b User Id = 
+    td= index.id
+    td
+      a(href='/Users/' + index.id) View
+
+a(href='../') Back Home
+

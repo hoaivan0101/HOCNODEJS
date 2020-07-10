@@ -1,0 +1,54 @@
+
+body{
+    padding: 0px;
+    margin: 0px;
+}
+.container{
+    list-style: none;
+    display: flex;
+    background-color: cornflowerblue;
+    box-sizing: border-box;
+}
+
+.container>li{
+    padding: 5px 20px;
+}
+
+.child li:hover{
+    background-color: darksalmon;
+}
+
+.list2{
+    position: relative;
+    width: 200px;
+}
+
+.child{
+    margin: 0px;
+    padding: 0px;
+    display:none;
+    list-style: none;
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    background-color: darkgray;
+}
+
+.child li{
+    padding: 10px;
+    box-sizing: border-box;
+    width: 240px;
+
+}
+
+.container .list2:hover .child{
+    display:block;
+}
+
+.container .list2:hover{
+    background-color: chartreuse;
+}
+
+.container li:hover{
+    background-color: dimgrey;
+}

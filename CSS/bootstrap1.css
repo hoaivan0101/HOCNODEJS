@@ -1,0 +1,15 @@
+.col
+{
+    text-align: center;
+    border: 1px solid black;
+    background-color: chartreuse;
+}
+
+.container{
+    margin: 0px;
+    padding: 0px;
+}
+
+.color{
+    background-color: #f53d2d;
+}

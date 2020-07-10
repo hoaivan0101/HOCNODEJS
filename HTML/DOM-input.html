@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input with DOM</title>
+</head>
+<body>
+    <!-- <h2>Xử lý dữ liệu input</h2>
+    <input type="text" id="name">
+    <button onclick="showmessage()" id="confirm">Confirm</button>
+    <div id="result"></div>
+    <script>
+        function showmessage(){
+            var name = document.getElementById('name').value;
+            if (name) { 
+            document.getElementById('result').innerHTML= 'Tên là: ' + name;
+            console.log(name);
+            console.log(document.getElementById('result').innerHTML);
+            } else {alert('Tên rỗng, Vui lòng Nhập lại tên')}
+        }
+    </script> -->
+    <h2>Xử lý dữ liệu input</h2>
+    <input type="text" id="name">
+    <button id="confirm">Confirm</button>
+    <button onclick="remact()" id="try">Try</button>
+    <div id="result"></div>
+    <div id="rep"></div>
+    <script>
+        document.getElementById('confirm').addEventListener('click',function(){
+            var name =  document.getElementById('name').value;
+            if (name){
+            document.getElementById('result').innerHTML= 'Tên là: ' + name;
+            } else { alert('Lỗi')}
+        })       
+
+        document.getElementById('name').addEventListener('mousemove',myfunction);
+
+        function myfunction(){
+            document.getElementById('rep').innerHTML = Math.random();
+        } 
+
+        function remact(){
+        document.getElementById('try').removeEventListener('mousemove',myfunction);
+        document.getElementById('rep').innerHTML = 'END'
+        }
+    </script>
+</body>
+</html>

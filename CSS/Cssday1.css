@@ -1,0 +1,30 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.st1{
+    width: 300px;
+    height: auto;
+}
+.st1 h1{
+   text-align: center;
+   font-size: 30px;
+}
+.st1 p{
+    margin:2px;
+
+}
+.st1 input{
+    width: 100%;
+    border-width:1px;
+    height: 20px;
+    margin: 2px;
+}
+.rig{
+    text-align: right;
+}
+.but{
+    width: 300px;
+    background-color: pink;
+    text-align: center;
+}

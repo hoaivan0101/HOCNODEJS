@@ -1,0 +1,54 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+div{
+    width: 300px;
+    height: 100px;
+}
+.header{
+    background-color: greenyellow;
+    text-align: center;
+}
+
+.title{
+    background-color: indianred;
+    text-align: center;
+}
+
+.end{
+    background-color: khaki;
+    text-align: center;
+}
+.main1{
+    background-color: lawngreen;
+    float: left;
+    width: 30%;
+}
+.main22{
+    width: 40%;
+    height: 50%;
+}
+
+.main23{
+    width: 40%;
+    height: 30%;
+}
+
+.main24{
+    width: 40%;
+    height: 20%;
+}
+.main2{
+    float: left;
+    width: 40%;
+}
+.main3{
+width: 30%;
+background-color: black;
+color: white;
+}
+
+
+

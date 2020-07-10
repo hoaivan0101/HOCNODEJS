@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Document Object Model</title>
+</head>
+<body>
+    <p id="ptab">Thẻ 1</p>
+    <p>Thẻ 2</p>
+    <p>Thẻ 3</p>
+    <div class="name">Name</div>
+    <a href="" id="thea">Input</a>
+</body>
+<script>
+    var a=document.getElementById('ptab').innerText;//chỉ lấy text
+    console.log(a);
+    var t=document.getElementById('thea').innerHTML;//lấy hết nội dung trong
+    console.log(t);
+    document.getElementsByClassName('name').innerHTML='Trần Hoài Văn';//thay đổi giá trị
+    var r=document.getElementsByClassName('name').innerHTML;
+    console.log(r);
+</script>
+</html>

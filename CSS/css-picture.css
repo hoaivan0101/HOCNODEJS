@@ -1,0 +1,16 @@
+img{
+    width: 300px;
+    height: auto;
+    position: absolute;
+}
+
+div{
+    color: red;
+    position: absolute;
+}
+.mot{
+    position: relative;
+    background-color: silver;
+    color: black;
+    margin: 0px;
+}
