@@ -11,7 +11,6 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
  
 const Users = new Schema({
-  author: ObjectId,
   name: String,
   age: String,
 },{
@@ -19,19 +18,20 @@ const Users = new Schema({
   });
 
 const Accouts = mongoose.model('Lists',Users)
+module.exports = Accouts;
 
-// Accouts.create({
-//     name: 'Van',
-//     age:29
+// // Accouts.create({
+// //     name: 'Van',
+// //     age:29
+// // })
+
+
+// Accouts.find({})
+// .then(data =>{
+//     console.log('DATA INCLUES',data);
 // })
-
-
-Accouts.find({})
-.then(data =>{
-    console.log('DATA INCLUES',data);
-})
-.catch(err =>{
-    console.log('ERR',err);
-})
-console.log(Accouts,' ..........');
+// .catch(err =>{
+//     console.log('ERR',err);
+// })
+// console.log(Accouts,' ..........');
 

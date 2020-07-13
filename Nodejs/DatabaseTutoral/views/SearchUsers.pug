@@ -1,0 +1,51 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css', integrity='sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk', crossorigin='anonymous')
+  script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js', integrity='sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI', crossorigin='anonymous')
+  title Document
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  a.navbar-brand(href='#') Users
+  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link(href='/')
+          | Home 
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link(href='#') Link
+
+.row
+  .col-3
+    #v-pills-tab.nav.flex-column.nav-pills(role='tablist', aria-orientation='vertical')
+      a#v-pills-home-tab.nav-link.active(data-toggle='pill', href="/User/Users", role='tab', aria-controls='v-pills-home', aria-selected='true') Show Users
+      a#v-pills-profile-tab.nav-link(data-toggle='pill', href='/User/SearchUsers', role='tab', aria-controls='v-pills-profile', aria-selected='false') Search Users
+      a#v-pills-messages-tab.nav-link(data-toggle='pill', href='/User/CreateUsers', role='tab', aria-controls='v-pills-messages', aria-selected='false') Create Users
+      a#v-pills-settings-tab.nav-link(data-toggle='pill', href="/", role='tab', aria-controls='v-pills-settings', aria-selected='false') Home
+  .col-9
+    table.table.table-dark
+      thead
+        tr
+          th Users Id 
+          th Users Name
+          th Users Email
+          th More infomation
+      each index of Users
+        tr
+          td=index.id
+          td=index.name
+          td=index.email
+          td
+            a(href='./Users/'+index.id) View
+
+    form(action='./SearchUsers', method='GET')
+      .form-group
+        label(for='exampleInputEmail1') Search Name
+        input.form-control(type='text',name='d')
+        small.form-text.text-muted We&apos;ll never share your email with anyone else.
+    a.my-2.py-1.px-md-3.border.bg-light(href='../') Back Home
+//- form(action='./SearchUsers', method='GET')
+//-   input(type='text', name='d')//
