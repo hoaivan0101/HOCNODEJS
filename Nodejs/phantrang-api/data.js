@@ -1,4 +1,3 @@
-// Using Node.js `require()`
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/Users', {
