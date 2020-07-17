@@ -1,9 +1,10 @@
+function LoadPage(page){
 $.ajax({
-    url:'./data?page=1',
+    url:'./data?page='+page,
     type:'GET'
 })
     .then(data => {
-        console.log(data);
+        $('#content').html('')
         for (let i=0;i<data.length;i++){
         $('#content').append($(`
             <h3>${data[i].name}</h3>
@@ -14,5 +15,4 @@ $.ajax({
     .catch(err => {
         console.log(err);
     })
-
-
+}
