@@ -1,3 +1,11 @@
+// $('#demo').pagination({
+//   dataSource: [1, 2, 3, 4, 5, 6, 7, 8],
+//   callback: function(data, pagination) {
+//       var html = template(data);
+//       dataContainer.html(html);
+//   }
+// })
+
 function LoadPage(page){
 $.ajax({
     url:'./data?page='+page,
