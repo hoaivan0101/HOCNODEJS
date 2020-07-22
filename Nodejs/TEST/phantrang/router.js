@@ -1,7 +1,7 @@
 const express = require('express')
 var router = express.Router()
 var datas = require('./data')
-var page_size = 3;
+var page_size = 2;
 
 router.get('/home',(req,res)=>{
     res.sendfile('index.html')

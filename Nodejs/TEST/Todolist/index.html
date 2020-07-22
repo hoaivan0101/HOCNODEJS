@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/css/bootstrap-4.5.0-dist/css/bootstrap.css">
+    <title>Todojob</title>
+</head>
+<body>
+    <div class="container pt-5">
+        <div class="child">
+            <div id="content"  class="red">
+                <table class="table">
+                    <thead class= "thead-dark">
+                        <tr>
+                            <th>STT</th>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Name of job</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Date</label>
+            <input type="date" class="form-control" id="date" name="date">
+        </div>
+        <button id="btn" type="button" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    
+</body>
+<script src='./public/js/jquery-3.5.1.min.js'></script>
+<script src='./public/js/main.js'></script>
+</html>
