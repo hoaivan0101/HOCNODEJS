@@ -22,7 +22,18 @@ router.post('/',function(req,res){
         })
 })
 
-router.delete('/',function(req,res){
+router.put('/:id',function(req,res){
+    data.updateOne({
+        _id:req.params.id},{
+            name:req.query.newname,
+            email:req.query.newemail
+        })
+    .then(data=>{
+        res.json(data)
+    })
+})
+
+router.delete('/:id',function(req,res){
     data.deleteOne({
         _id:req.params.id})
         .then(data=>{

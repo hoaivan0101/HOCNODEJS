@@ -6,18 +6,25 @@ $.ajax({
         $('#tbody').html('');
         for (let i = 0; i < data.length; i++) {
             $('#tbody').append(`
-                <tr>
+                <tr class=${data[i]._id}>
                 <td><strong>${i + 1}</td>
-                <td><strong>${data[i].name}</td>
+                <td><strong><p class="name">${data[i].name}</p></td>
                 <td>${data[i].email}</td>
-                <td><button type="button" id=${data[i]._id} class="deletebtn btn btn-primary">Delete</button></td>
+                <td><button type="button"  id=${data[i]._id}  class="deletebtn btn btn-primary">Delete</button></td>
                 </tr>
             `)
         }
+
         $('.deletebtn').click(function () {
-            console.log($(this).attr('id'))
+            console.log($(this).attr('id'));
+            deletebyid($(this).attr('id'));
+        })
+
+        $('.name').click(function(){
+            console.log($(this).html());
         })
     })
+
 
 $('#btn').click(function () {
     var name = $('#name').val()
@@ -39,5 +46,18 @@ $('#btn').click(function () {
                 <td><button type="button" id=${data._id} class="deletebtn btn btn-primary">Delete</button></td>
                 </tr>
             `)
+            $('.deletebtn').click(function () {
+                console.log($(this).attr('id'))
+            })
         })
 })
+
+function deletebyid(id) {
+    $.ajax({
+        url: '/api/' + id,
+        type: 'DELETE'
+    })
+        .then(data => {
+            $('.' + id).remove()
+        })
+}
