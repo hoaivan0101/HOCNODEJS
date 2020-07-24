@@ -24,12 +24,12 @@ router.post('/', function (req, res) {
         })
 })
 
-router.get('/home/:id',function(req,res,next){
+router.get('/home',function(req,res,next){
     try {
-        var ketqua = jwt.verify(req.params.id, '123123')
+        var ketqua = jwt.verify(req.cookies.token, '123123')
         next()
     } catch (error) {
-        res.json('LOI DANG NHAP')
+        res.redirect('/user')
     } 
 },function(req,res,next){
     res.json('WELHOME')

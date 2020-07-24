@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express()
 const user_router = require('./router')
+var cookieParser = require('cookie-parser')
+
+app.use(cookieParser())
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
