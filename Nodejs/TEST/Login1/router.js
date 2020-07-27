@@ -22,12 +22,12 @@ router.post('/',function(req,res){
 })
 
 router.get('/data',function(req,res,next){
-    let token = req.cookies;
+    let token1 = req.cookies;
+    console.log(jwt.verify(req.cookies.token,'1234'));
     try {
-        var result = jwt.verify(token,'1234');
-        alert(result)
+        var result = jwt.verify(req.cookies.token,'1234');
     } catch (error) {
-        res.json(err)
+        res.json(error)
     }
     next();
 },function(req,res,next){
