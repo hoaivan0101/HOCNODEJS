@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <title>Document</title>
+  </head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <body>
+    <div class="container">
+      <div class="col-sm-6 col-sm-offset-3">
+    <form>
+      <input type="text" id="username" />
+      <input type="text" id="password" />
+      <button type="button" id="btn">Login</button>
+    </form>
+    </div></div>
+
+    <button id="getDataBtn">Get DU Lieu</button>
+  </body>
+
+  <script>
+    $("#btn").click(function () {
+      var username = $("#username").val();
+      var password = $("#password").val();
+  
+      $.ajax({
+        url: "/login",
+        type: "POST",
+        data: {
+          username: username,
+          password: password,
+        },
+      })
+        .then((data) => {
+          console.log(data);
+          localStorage.setItem("token", data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+
+    $("#getDataBtn").click(() => {
+      $.ajax({
+        url: "/private",
+        type: "get",
+        headers: {
+          authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  </script>
+</html>
