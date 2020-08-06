@@ -1,0 +1,67 @@
+* {
+  margin: 0px;
+}
+
+html{
+    width: 100%;
+}
+
+.header {
+  background-color: burlywood;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 40px;
+}
+
+ul li {
+  display: inline;
+  list-style: none;
+  margin: auto 16px;
+}
+/* ................. */
+
+.form {
+  max-width: 720px;
+  padding: 32px;
+  margin: 36px auto 0 auto;
+  background-color: gold;
+}
+
+.form_row {
+  margin:8px 0 ;
+  display: flex;
+}
+
+.form_input {
+  min-width: 90px;
+}
+
+.form_text {
+  flex: 1;
+}
+
+
+/* NAV */
+.nav{
+    padding: 10px;
+    margin: 20 auto 0 auto;
+    display:flex
+    
+}
+
+.nav-content{
+    padding: 20px;
+}
+
+.tab-1{
+   flex:3
+}
+
+.tab{
+   flex:1
+}
+
+.tab-2{
+   flex:1
+}

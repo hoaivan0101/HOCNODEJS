@@ -1,0 +1,176 @@
+
+.header{
+    min-height: 120px;
+    background-image: linear-gradient(#f53f2d,#fe6432);
+}
+
+.header__navbar{
+    display:flex;
+    justify-content: space-between;
+}
+
+.header__navbar-list{
+    list-style: none;
+    display: flex;
+    padding-left: 0px;
+    margin-top:0px;
+    color: white;
+    display:flex;
+    align-items: center;
+}
+
+.header__navbar-item{
+    margin:8px;
+    position: relative;
+}
+
+.header__navbar-item,
+.header__navbar-list-a{
+    color: white;
+    margin: 2px;
+    padding: 0 5px ;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 100;
+    display:flex;
+    align-items: center;
+    position: relative;
+}
+
+.header__navbar-list--bold{
+    font-weight: 700;
+}
+
+.header__navbar-item--split::after{
+    content:'';
+    position: absolute;
+    border-left: 2px solid #f86c5b;
+    height: 1rem;
+    right: -4px;
+    top: 25%;
+}
+
+.header__navbar-item:hover,
+.header__navbar-list-a:hover{
+    color:rgba(255, 255, 255,0.7);
+    cursor: pointer;
+}
+
+.header_navbar-QrCodehv:hover 
+.header__navbar-QrCode{
+    display:block;
+}
+/* QR CODE HEADER */
+.header__navbar-QrCode{
+    width: 170px;
+    position: absolute;
+    top: 100%;
+    left:0;
+    border-radius: 3px;
+    background-color: white;
+    border: 1px solid white;
+    display: none;
+}
+
+.QrCode{
+    width: 100%;
+}
+
+.QrCode-app{
+    display:flex;
+    justify-content: space-between;
+    padding: 0 2px;
+}
+
+.QrCode__a{
+    flex:1;
+}
+
+.googleapp{
+    height: 15px;
+}
+
+/* QR CODE HEADER END*/
+
+.noti__header{
+    height: 40px;
+    padding: 0 5px;
+    line-height: 35px;
+}
+
+.header__navbar-noti{
+    width: 450px;
+    background-color: white;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    color: teal;
+    display: none;
+    transform-origin: top right;
+    animation: AppearanceNoti ease 0.3s;
+}
+.header__navbar-noti::before{
+    content: '';
+    border-style: solid;
+    border-width: 20px 30px;
+    position: absolute;
+    border-color: transparent transparent white transparent;
+    top:-36px;
+    right: 12px;
+}
+
+.noti__header--list{
+    padding-left: 0;
+}
+
+.noti__content{
+    display: flex;
+    padding-left: 5px;
+    margin-bottom: 5px;
+}
+
+.noti__content--main{
+    display: flex;
+    width: 100%;
+    height: 75px;
+    text-decoration: none;
+}
+
+.noti--img{
+    height: 50px;
+    object-fit:cover ;
+    margin-right: 5px;
+}
+
+.noti--title{
+    font-size: 1rem;
+}
+
+.noti--body{
+    font-size: 0.9rem;
+}
+
+@keyframes AppearanceNoti{
+    from{
+        transform: scale(0) ;
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.header__navbar-list-a-noti:hover 
+.header__navbar-noti{
+    display: block;
+}
+
+/*  */
+
+.noti__footer{
+    height: 40px;
+    padding: 0 5px;
+    line-height: 40px;
+    text-align: center;
+    background-color: thistle;
+}
+

@@ -1,0 +1,19 @@
+.tab{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border: 1px solid blue;
+    transition: 3s;
+    background-color: cornsilk;  
+    
+}
+
+.content{
+    text-align: center;
+}
+
+.move{
+    transform: translateX(500px);
+}

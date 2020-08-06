@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Animation</title>
+</head>
+<body>
+  <div class="bar">
+      <div class="one"><span>NAPBAR</span></div>
+      <div class="one">NAVBAR</div>
+      <div class="one">CONTENT</div>
+  </div>
+  <button onclick="Show()">Click me</button>
+    
+</body>
+<script>
+    function Show(){
+        document.getElementsByClassName("bar")[0].classList.toggle("move")
+    }
+</script>
+</html>
+
+<!-- Classlist.toggle => có rồi thì bỏ, chưa có thì thêm -->

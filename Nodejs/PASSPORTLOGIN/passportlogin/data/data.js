@@ -9,9 +9,12 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
  
 const Users = new Schema({
-  name: String,
+  username: String,
   password: String,
+  role:String
+},{
+  collection:"Lists"
 });
 
-const Accouts = mongoose.model('accounts',Users)
+const Accouts = mongoose.model('Lists',Users)
 module.exports = Accouts;

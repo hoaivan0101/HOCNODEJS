@@ -1,0 +1,61 @@
+<html>
+   <head>
+   
+      <style>
+
+        div {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: relative;
+        }
+
+        /* @keyframes example {
+        0%   {background-color:red; left:0px; top:0px;}
+        100% {background-color:blue; left:0px; right:100px;}
+        } */
+
+         .animated {
+            background-image: url(../../Picture/moon.jpg);
+            background-repeat: no-repeat;
+            background-position: left top;
+            padding-top:95px;
+            margin-bottom:60px;
+            -webkit-animation-duration: 5s;
+            animation-duration: 5s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+         }
+         
+         @-webkit-keyframes fadeIn {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+         }
+         
+         @keyframes fadeIn {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+            0%   {background-color:red; left:0px; top:0px;}
+            100% {background-color:red; left:100px; right:100px;}
+         }
+         
+         .fadeIn {
+            -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
+         }
+      </style>
+      
+   </head>
+   <body>
+   
+      <div id="animated-example" class="animated fadeIn"></div>
+      <button onclick="myFunction()">Reload page</button>
+<!--       
+      <script>
+         function myFunction() {
+            location.reload();
+         } -->
+      <!-- </script> -->
+      
+   </body>
+</html>

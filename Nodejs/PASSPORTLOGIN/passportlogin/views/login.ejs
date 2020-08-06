@@ -4,6 +4,7 @@
     <title>Node Authentication</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <script src="../public/javascripts/jquery-3.5.1.min.js"></script>
     <style>
         body {
             padding-top: 80px;
@@ -13,18 +14,18 @@
 <body>
 <div class="container">
     <div class="col-sm-6 col-sm-offset-3">
-        <span><%=data[1].name%></span>
+        <span><%=data.name%></span>
         <h1><span class="fa fa-sign-in"></span> Login</h1>
-        <form action="/login" method="post">
+        <form>
             <div class="form-group">
                 <label>Email</label>
-                <input type="text" class="form-control" name="email">
+                <input type="text" class="form-control" name="username" id="username">
             </div>
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" class="form-control" name="password">
+                <input type="password" class="form-control" name="password" id="password">
             </div>
-            <button type="submit" class="btn btn-warning btn-lg">Login</button>
+            <button type="button" class="btn btn-warning btn-lg">Login</button>
         </form>
         <hr>
         <p>Need an account? <a href="/signup">Signup</a></p>
@@ -35,14 +36,16 @@
                     <th><strong>ID</strong></th>
                     <th><strong>Username</strong></th>
                     <th><strong>Password</strong></th>
+                    <th><strong>Role</strong></th>
                 </tr>
             </thead>
             <tbody id="content">
                <% data.forEach(function(i){ %>
                 <tr>
                 <td><%=i.id %></td>
-                <td><%=i.name %></td>
+                <td><%=i.username %></td>
                 <td><%=i.password %></td>
+                <td><%=i.role %></td>
                 </tr>
                <% }) %>
             </tbody>
@@ -50,4 +53,25 @@
     </div>
 </div>
 </body>
+<script>
+    $('.btn').click(function(){
+        $.ajax({
+        url:"/login",
+        type:"POST",
+        data:{
+            username:$('#username').val(),
+            password:$('#password').val(),
+        }
+    })
+    .then(data =>{
+        console.log(data);
+        localStorage.setItem("token",data)
+        window.location.replace('/');
+    })
+    .catch(err =>{
+        console.log(err);
+    })
+    })
+
+</script>
 </html>
