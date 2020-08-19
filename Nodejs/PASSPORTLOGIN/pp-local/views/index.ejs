@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Index</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="../public/javascripts/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="../public/stylesheets/bootstrap-4.5.0-dist/css/bootstrap.css">
+  </head>
+  <body>
+    <h1 class="text-center">WELCOME TO MYFIRST PROJECT</h1>
+    <p class="text-center">EoI.Dc</p>
+    <div class="container">
+      <div class="jumbotron text-center">
+          <a href="/login" class="btn btn-primary"><span>Login Local</span></a>
+          <a href="/facebook" class="btn btn-primary"><span>Login Facebook</span></a>
+          <a href="/signin" class="btn btn-primary"><span>Sign In</span></a>
+      </div>
+    </div>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th>UserId</th>
+          <th>Username</th>
+          <th>Userpassword</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%data.forEach(function(i){%>
+          <tr>
+            <td><%=i.id%></td>
+            <td><%=i.username%></td>
+            <td><%=i.password%></td>
+          </tr>
+        <%})%>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -131,6 +131,7 @@
     color: white;
     text-decoration: none;
     font-size: 1.45rem;
+
 }
 
 
@@ -372,7 +373,6 @@ padding-right: 2px;
     font-size: 1.4rem;
     font-family: 'mutibold';
     padding-left: 25px;
-    
 }
 
 .package-highlights_main__bottom{
@@ -384,7 +384,6 @@ padding-right: 2px;
     font-size: 1.18rem;
     flex-wrap: wrap;
     margin-top: -10px;
-
 }
 
 .package-highlights_main__bottom ul li{
@@ -406,6 +405,7 @@ padding-right: 2px;
 }
 
 .package-highlights_main__right__bottom-left_Valid{
+    margin-left: -1px;
     margin-top: 45px;
     font-size: 1rem;
     font-style: italic;
@@ -419,4 +419,240 @@ padding-right: 2px;
 .package-highlights_main__right__bottom-right svg{
     margin-right: 23px;
 }
+
+/* PACKAGE DETAILS */
+.package-details{
+    height: 550px;
+    margin-top: 33px;
+    background: white;
+    border-radius: 8px;
+}
+
+.package-details_top{
+    height: 50px;
+    width: 100%;
+    background: #0A223D;
+    border-radius: 4px 4px 0px 0px;
+    color: white;
+    line-height: 50px;
+    font-size: 1.4rem;
+    font-family: 'mutibold';
+    padding-left: 23px;
+}
+
+.package-details_middle{
+    height: 320px;
+    display: flex;
+    border-bottom: 1px dashed #E0E0E0;
+}
+
+.package-details_middle_main{
+    flex:1;
+    /* background-color: tomato; */
+    margin-right: 1px;
+    box-sizing: border-box;
+}
+
+.package-details_middle_main__top{
+    /* background: yellowgreen; */
+    font-size: 1.3rem;
+    color:  #EC1F46;
+    padding-left: 23px;
+    margin-top: 35px;
+}
+
+.package-details_middle_main__bottom{
+    margin:29px 35px 27px 24px;
+}
+
+.package-details_middle_main__bottom ul{
+    list-style: none;
+    font-size: 1.18rem;
+    margin-top: -22px;
+}
+
+.package-details_middle_main__bottom ul li{
+    line-height: 38px;
+}
+
+.package-details_middle_main__bottom ul .fa-check-circle{
+    font-size: 15px;
+    margin-right: 23px;
+}
+
+.package-details_middle__center{
+    padding-left: 34px;
+}
+
+.package-details_middle__right{
+    padding-left: 40px;
+}
+
+.package-details_bottom{
+    margin-top: -5px;
+}
+
+/* OTHER PACKAGES */
+.other-packages{
+    font-family: 'mutibold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 45px;
+    text-align: center;
+    margin-top: 106px;
+}
+
+/* FLASH OFFER */
+.flash-offer{
+    /* display: block; */
+    margin-top: 35px;
+}
+
+.flash-offer_bottom{
+    display: flex;
+    justify-content: space-between;
+}
+/* TOP */
+.flash-offer_top{
+   width: 800px;
+   height: 500px;
+   display: flex;
+}
+
+.flash-offer_unmain{
+    margin-top: 30px;
+    background-image: url(../picture/flash-offer5.jfif);
+    background-size: cover;
+    width: 365px;
+    height: 500px;
+    position: relative;
+}
+
+/* ENDTOP */
+.flash-offer_main{
+    margin-top: 30px;
+    width: 350px;
+    height: 500px;
+}
+
+.flash-offer_main_top{
+    width: 100%;
+    height: 250px;
+    position: relative;
+}
+
+.flash-offer_main_top img{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.flash-offer_main_top div{
+    background: #EC1F46;
+    border-radius: 0px 4px 4px 0px;
+    color: white;
+    width: 60px;
+    height: 18px;
+    font-size: 0.9rem;
+    text-align: center;
+    line-height: 19px;
+    position: absolute;
+    top: 25px;
+}
+
+.flash-offer_main_bottom{
+    background: #0A223D;
+    border-radius: 0px 0px 8px 8px;
+    width: 100%;
+    height: 250px;
+    position: relative;
+}
+
+.flash-offer_main_bottom ul{
+    list-style: none;
+    color: white;
+    margin-left: 32px;
+    padding-top: 29px;
+}
+
+.flash-offer_main_bottom-1{
+    font-size: 1.8rem;
+    margin-bottom: 18px;
+}
+
+.flash-offer_main_bottom-2{
+    display: flex;
+    align-items: center;
+    font-size:1.2rem;
+    font-weight: lighter;
+    margin-bottom: 2px;
+}
+
+.flash-offer_main_bottom-2 svg{
+    margin-right: 15.17px;
+}
+
+.flash-offer_main_bottom-3{
+    margin-top: 17px;
+    font-size: 1.4rem;
+    font-weight: lighter;
+    text-decoration: line-through;
+}
+
+.flash-offer_main_bottom-4{
+    margin-top: 6px;
+    font-size: 2.3rem;
+}
+
+.flash-offer-main_bottom--booknow{
+    width: 120px;
+    height: 40px;
+    color: white;
+    font-weight: lighter;
+    font-size: 1.3rem;
+    background: #EC1F46;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+    bottom: 25px;
+    right: 20px;
+}
+
+.flash-offer_main-right{
+    width: 365px;
+}
+
+.flash-offer_unmain div{
+    background: #EC1F46;
+    border-radius: 0px 4px 4px 0px;
+    color: white;
+    width: 95px;
+    height: 30px;
+    font-size: 1.2rem;
+    padding-left: 12px;
+    line-height: 30px;
+    position: absolute;
+    top:25px;
+}
+
+.flash-offer_main_right_content{
+    padding-left:13px ;
+    padding-top: 30px;
+    border-radius: 0 8px 8px 0 ;
+}
+
+.flash-offer_main_bottom-11{
+    padding-top: 10px;
+    font-size: 1.4rem;
+    line-height: 22px;
+    margin-bottom: 42px;
+}
+
+.flash-offer_main_bottom-33{
+    margin-top: 30px;
+    margin-bottom: 6px;
+}
+
 
