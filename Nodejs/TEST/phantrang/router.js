@@ -1,23 +1,25 @@
 const express = require('express');
+// eslint-disable-next-line new-cap
 const router = express.Router();
 const datas = require('./data');
-const page_size = 2;
+const pageSize = 2;
 
-router.get('/home', (req, res)=>{
+router.get('/home', (req, res) => {
   res.sendfile('index.html');
 });
 
 router.get('/data', function(req, res) {
   const page = parseInt(req.query.page);
-  const skip = (page-1)*page_size;
-  datas.find()
+  const skip = (page - 1) * pageSize;
+  datas
+      .find()
       .sort({name: 'asc'})
       .skip(skip)
-      .limit(page_size)
+      .limit(pageSize)
       .then(function(data) {
         res.json(data);
       })
-      .catch((err)=>{
+      .catch((err) => {
         res.json(err);
       });
 });

@@ -2,6 +2,7 @@ const express = require('express');
 // eslint-disable-next-line new-cap
 const router = express.Router();
 const User = require('../data/account');
+const passport = require('passport');
 
 router.use(require('cookie-parser')());
 router.use(
