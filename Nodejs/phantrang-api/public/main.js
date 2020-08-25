@@ -6,15 +6,15 @@
 //   }
 // })
 
-function LoadPage(page){
-$.ajax({
-    url:'./data?page='+page,
-    type:'GET'
-})
-    .then(data => {
-      $('#cont').html('')
-        for (let i=0;i<data.length;i++){
-        $('#cont').append($(`
+function LoadPage(page) {
+  $.ajax({
+    url: './data?page='+page,
+    type: 'GET',
+  })
+      .then((data) => {
+        $('#cont').html('');
+        for (let i=0; i<data.length; i++) {
+          $('#cont').append($(`
         <div class="card d-inline-flex m-3" style="width: 12rem;">
         <img src="./public/butterfly-grass-on-meadow-night-260nw-1111729556.jpg" class="card-img-top" alt="...">
         <div class="card-body">
@@ -23,11 +23,11 @@ $.ajax({
           <a href="#" class="btn btn-primary">Add to cart</a>
         </div>
         </div>
-        `))
-    }
-    })
-    .catch(err => {
+        `));
+        }
+      })
+      .catch((err) => {
         console.log(err);
-    })
+      });
 }
 

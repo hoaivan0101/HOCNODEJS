@@ -1,20 +1,20 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/todo-project', {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
- 
-var job = new Schema({
-    name:String,
-    date:Date,
-})
 
-var listjob = mongoose.model('tasks',job)
+const job = new Schema({
+  name: String,
+  date: Date,
+});
 
-module.exports = listjob
+const listjob = mongoose.model('tasks', job);
+
+module.exports = listjob;
 
 

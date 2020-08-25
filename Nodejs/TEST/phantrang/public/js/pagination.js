@@ -10,16 +10,15 @@
  */
 
 (function(global, $) {
-
   if (typeof $ === 'undefined') {
     throwError('Pagination requires jQuery.');
   }
 
-  var pluginName = 'pagination';
+  let pluginName = 'pagination';
 
-  var pluginHookMethod = 'addHook';
+  const pluginHookMethod = 'addHook';
 
-  var eventPrefix = '__pagination-';
+  const eventPrefix = '__pagination-';
 
   // Conflict, use backup
   if ($.fn.pagination) {
@@ -27,19 +26,18 @@
   }
 
   $.fn[pluginName] = function(options) {
-
     if (typeof options === 'undefined') {
       return this;
     }
 
-    var container = $(this);
+    const container = $(this);
 
-    var attributes = $.extend({}, $.fn[pluginName].defaults, options);
+    const attributes = $.extend({}, $.fn[pluginName].defaults, options);
 
-    var pagination = {
+    const pagination = {
 
       initialize: function() {
-        var self = this;
+        const self = this;
 
         // Cache attributes of current instance
         if (!container.data('pagination')) {
@@ -57,14 +55,13 @@
         self.disabled = !!attributes.disabled;
 
         // Model will be passed to the callback function
-        var model = self.model = {
+        const model = self.model = {
           pageRange: attributes.pageRange,
-          pageSize: attributes.pageSize
+          pageSize: attributes.pageSize,
         };
 
         // dataSource`s type is unknown, parse it to find true data
         self.parseDataSource(attributes.dataSource, function(dataSource) {
-
           // Currently in asynchronous mode
           self.isAsync = Helpers.isString(dataSource);
           if (Helpers.isArray(dataSource)) {
@@ -74,10 +71,10 @@
           // Currently in asynchronous mode and a totalNumberLocator is specified
           self.isDynamicTotalNumber = self.isAsync && attributes.totalNumberLocator;
 
-          var el = self.render(true);
+          const el = self.render(true);
 
           // Add extra className to the pagination element
-            if (attributes.className) {
+          if (attributes.className) {
             el.addClass(attributes.className);
           }
 
@@ -98,19 +95,19 @@
       },
 
       render: function(isBoot) {
-        var self = this;
-        var model = self.model;
-        var el = model.el || $('<div class="paginationjs"></div>');
-        var isForced = isBoot !== true;
+        const self = this;
+        const model = self.model;
+        const el = model.el || $('<div class="paginationjs"></div>');
+        const isForced = isBoot !== true;
 
         self.callHook('beforeRender', isForced);
 
-        var currentPage = model.pageNumber || attributes.pageNumber;
-        var pageRange = attributes.pageRange || 0;
-        var totalPage = self.getTotalPage();
+        const currentPage = model.pageNumber || attributes.pageNumber;
+        const pageRange = attributes.pageRange || 0;
+        const totalPage = self.getTotalPage();
 
-        var rangeStart = currentPage - pageRange;
-        var rangeEnd = currentPage + pageRange;
+        let rangeStart = currentPage - pageRange;
+        let rangeEnd = currentPage + pageRange;
 
         if (rangeEnd > totalPage) {
           rangeEnd = totalPage;
@@ -127,7 +124,7 @@
           currentPage: currentPage,
           pageRange: pageRange,
           rangeStart: rangeStart,
-          rangeEnd: rangeEnd
+          rangeEnd: rangeEnd,
         }));
 
         // There is only one page
@@ -142,20 +139,20 @@
 
       // Generate HTML of the pages
       generatePageNumbersHTML: function(args) {
-        var self = this;
-        var currentPage = args.currentPage;
-        var totalPage = self.getTotalPage();
-        var rangeStart = args.rangeStart;
-        var rangeEnd = args.rangeEnd;
-        var html = '';
-        var i;
+        const self = this;
+        const currentPage = args.currentPage;
+        const totalPage = self.getTotalPage();
+        const rangeStart = args.rangeStart;
+        const rangeEnd = args.rangeEnd;
+        let html = '';
+        let i;
 
-        var pageLink = attributes.pageLink;
-        var ellipsisText = attributes.ellipsisText;
+        const pageLink = attributes.pageLink;
+        const ellipsisText = attributes.ellipsisText;
 
-        var classPrefix = attributes.classPrefix;
-        var activeClassName = attributes.activeClassName;
-        var disableClassName = attributes.disableClassName;
+        const classPrefix = attributes.classPrefix;
+        const activeClassName = attributes.activeClassName;
+        const disableClassName = attributes.disableClassName;
 
         // Disable page range, display all the pages
         if (attributes.pageRange === null) {
@@ -209,49 +206,49 @@
 
       // Generate HTML content from the template
       generateHTML: function(args) {
-        var self = this;
-        var currentPage = args.currentPage;
-        var totalPage = self.getTotalPage();
+        const self = this;
+        const currentPage = args.currentPage;
+        const totalPage = self.getTotalPage();
 
-        var totalNumber = self.getTotalNumber();
+        const totalNumber = self.getTotalNumber();
 
-        var showPrevious = attributes.showPrevious;
-        var showNext = attributes.showNext;
-        var showPageNumbers = attributes.showPageNumbers;
-        var showNavigator = attributes.showNavigator;
-        var showGoInput = attributes.showGoInput;
-        var showGoButton = attributes.showGoButton;
+        const showPrevious = attributes.showPrevious;
+        const showNext = attributes.showNext;
+        const showPageNumbers = attributes.showPageNumbers;
+        const showNavigator = attributes.showNavigator;
+        const showGoInput = attributes.showGoInput;
+        const showGoButton = attributes.showGoButton;
 
-        var pageLink = attributes.pageLink;
-        var prevText = attributes.prevText;
-        var nextText = attributes.nextText;
-        var goButtonText = attributes.goButtonText;
+        const pageLink = attributes.pageLink;
+        const prevText = attributes.prevText;
+        const nextText = attributes.nextText;
+        const goButtonText = attributes.goButtonText;
 
-        var classPrefix = attributes.classPrefix;
-        var disableClassName = attributes.disableClassName;
-        var ulClassName = attributes.ulClassName;
+        const classPrefix = attributes.classPrefix;
+        const disableClassName = attributes.disableClassName;
+        const ulClassName = attributes.ulClassName;
 
-        var html = '';
-        var goInput = '<input type="text" class="J-paginationjs-go-pagenumber">';
-        var goButton = '<input type="button" class="J-paginationjs-go-button" value="' + goButtonText + '">';
-        var formattedString;
+        let html = '';
+        const goInput = '<input type="text" class="J-paginationjs-go-pagenumber">';
+        const goButton = '<input type="button" class="J-paginationjs-go-button" value="' + goButtonText + '">';
+        let formattedString;
 
-        var formatNavigator = $.isFunction(attributes.formatNavigator) ? attributes.formatNavigator(currentPage, totalPage, totalNumber) : attributes.formatNavigator;
-        var formatGoInput = $.isFunction(attributes.formatGoInput) ? attributes.formatGoInput(goInput, currentPage, totalPage, totalNumber) : attributes.formatGoInput;
-        var formatGoButton = $.isFunction(attributes.formatGoButton) ? attributes.formatGoButton(goButton, currentPage, totalPage, totalNumber) : attributes.formatGoButton;
+        const formatNavigator = $.isFunction(attributes.formatNavigator) ? attributes.formatNavigator(currentPage, totalPage, totalNumber) : attributes.formatNavigator;
+        const formatGoInput = $.isFunction(attributes.formatGoInput) ? attributes.formatGoInput(goInput, currentPage, totalPage, totalNumber) : attributes.formatGoInput;
+        const formatGoButton = $.isFunction(attributes.formatGoButton) ? attributes.formatGoButton(goButton, currentPage, totalPage, totalNumber) : attributes.formatGoButton;
 
-        var autoHidePrevious = $.isFunction(attributes.autoHidePrevious) ? attributes.autoHidePrevious() : attributes.autoHidePrevious;
-        var autoHideNext = $.isFunction(attributes.autoHideNext) ? attributes.autoHideNext() : attributes.autoHideNext;
+        const autoHidePrevious = $.isFunction(attributes.autoHidePrevious) ? attributes.autoHidePrevious() : attributes.autoHidePrevious;
+        const autoHideNext = $.isFunction(attributes.autoHideNext) ? attributes.autoHideNext() : attributes.autoHideNext;
 
-        var header = $.isFunction(attributes.header) ? attributes.header(currentPage, totalPage, totalNumber) : attributes.header;
-        var footer = $.isFunction(attributes.footer) ? attributes.footer(currentPage, totalPage, totalNumber) : attributes.footer;
+        const header = $.isFunction(attributes.header) ? attributes.header(currentPage, totalPage, totalNumber) : attributes.header;
+        const footer = $.isFunction(attributes.footer) ? attributes.footer(currentPage, totalPage, totalNumber) : attributes.footer;
 
         // Whether to display header
         if (header) {
           formattedString = self.replaceVariables(header, {
             currentPage: currentPage,
             totalPage: totalPage,
-            totalNumber: totalNumber
+            totalNumber: totalNumber,
           });
           html += formattedString;
         }
@@ -300,7 +297,7 @@
             formattedString = self.replaceVariables(formatNavigator, {
               currentPage: currentPage,
               totalPage: totalPage,
-              totalNumber: totalNumber
+              totalNumber: totalNumber,
             });
             html += '<div class="' + classPrefix + '-nav J-paginationjs-nav">' + formattedString + '<\/div>';
           }
@@ -313,7 +310,7 @@
               currentPage: currentPage,
               totalPage: totalPage,
               totalNumber: totalNumber,
-              input: goInput
+              input: goInput,
             });
             html += '<div class="' + classPrefix + '-go-input">' + formattedString + '</div>';
           }
@@ -326,7 +323,7 @@
               currentPage: currentPage,
               totalPage: totalPage,
               totalNumber: totalNumber,
-              button: goButton
+              button: goButton,
             });
             html += '<div class="' + classPrefix + '-go-button">' + formattedString + '</div>';
           }
@@ -337,7 +334,7 @@
           formattedString = self.replaceVariables(footer, {
             currentPage: currentPage,
             totalPage: totalPage,
-            totalNumber: totalNumber
+            totalNumber: totalNumber,
           });
           html += formattedString;
         }
@@ -348,26 +345,26 @@
       // Find totalNumber from the remote response
       // Only available in asynchronous mode
       findTotalNumberFromRemoteResponse: function(response) {
-        var self = this;
+        const self = this;
         self.model.totalNumber = attributes.totalNumberLocator(response);
       },
 
       // Go to the specified page
       go: function(number, callback) {
-        var self = this;
-        var model = self.model;
+        const self = this;
+        const model = self.model;
 
         if (self.disabled) return;
 
-        var pageNumber = number;
+        let pageNumber = number;
         pageNumber = parseInt(pageNumber);
 
         // Page number is out of bounds
         if (!pageNumber || pageNumber < 1) return;
 
-        var pageSize = attributes.pageSize;
-        var totalNumber = self.getTotalNumber();
-        var totalPage = self.getTotalPage();
+        const pageSize = attributes.pageSize;
+        const totalNumber = self.getTotalNumber();
+        const totalPage = self.getTotalPage();
 
         // Page number is out of bounds
         if (totalNumber > 0) {
@@ -380,19 +377,19 @@
           return;
         }
 
-        var postData = {};
-        var alias = attributes.alias || {};
+        const postData = {};
+        const alias = attributes.alias || {};
         postData[alias.pageSize ? alias.pageSize : 'pageSize'] = pageSize;
         postData[alias.pageNumber ? alias.pageNumber : 'pageNumber'] = pageNumber;
 
-        var ajaxParams = $.isFunction(attributes.ajax) ? attributes.ajax() : attributes.ajax;
-        var formatAjaxParams = {
+        const ajaxParams = $.isFunction(attributes.ajax) ? attributes.ajax() : attributes.ajax;
+        const formatAjaxParams = {
           type: 'get',
           cache: false,
           data: {},
           contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
           dataType: 'json',
-          async: true
+          async: true,
         };
 
         $.extend(true, formatAjaxParams, ajaxParams);
@@ -406,7 +403,7 @@
             self.model.totalNumber = attributes.totalNumber;
           }
 
-          var finalData = self.filterDataByLocator(response);
+          const finalData = self.filterDataByLocator(response);
           render(finalData);
         };
         formatAjaxParams.error = function(jqXHR, textStatus, errorThrown) {
@@ -439,7 +436,7 @@
 
           // format result data before callback invoked
           if (attributes.formatResult) {
-            var cloneData = $.extend(true, [], data);
+            const cloneData = $.extend(true, [], data);
             if (!Helpers.isArray(data = attributes.formatResult(cloneData))) {
               data = cloneData;
             }
@@ -465,8 +462,8 @@
       },
 
       doCallback: function(data, customCallback) {
-        var self = this;
-        var model = self.model;
+        const self = this;
+        const model = self.model;
 
         if ($.isFunction(customCallback)) {
           customCallback(data, model);
@@ -498,8 +495,8 @@
       },
 
       disable: function() {
-        var self = this;
-        var source = self.isAsync ? 'async' : 'sync';
+        const self = this;
+        const source = self.isAsync ? 'async' : 'sync';
 
         // Before disabled
         if (self.callHook('beforeDisable', source) === false) return;
@@ -512,8 +509,8 @@
       },
 
       enable: function() {
-        var self = this;
-        var source = self.isAsync ? 'async' : 'sync';
+        const self = this;
+        const source = self.isAsync ? 'async' : 'sync';
 
         // Before enabled
         if (self.callHook('beforeEnable', source) === false) return;
@@ -530,7 +527,7 @@
       },
 
       show: function() {
-        var self = this;
+        const self = this;
 
         if (self.model.el.is(':visible')) return;
 
@@ -538,7 +535,7 @@
       },
 
       hide: function() {
-        var self = this;
+        const self = this;
 
         if (!self.model.el.is(':visible')) return;
 
@@ -547,11 +544,11 @@
 
       // Parse variables in the template
       replaceVariables: function(template, variables) {
-        var formattedString;
+        let formattedString;
 
-        for (var key in variables) {
-          var value = variables[key];
-          var regexp = new RegExp('<%=\\s*' + key + '\\s*%>', 'img');
+        for (const key in variables) {
+          const value = variables[key];
+          const regexp = new RegExp('<%=\\s*' + key + '\\s*%>', 'img');
 
           formattedString = (formattedString || template).replace(regexp, value);
         }
@@ -561,12 +558,12 @@
 
       // Get data fragment
       getDataFragment: function(number) {
-        var pageSize = attributes.pageSize;
-        var dataSource = attributes.dataSource;
-        var totalNumber = this.getTotalNumber();
+        const pageSize = attributes.pageSize;
+        const dataSource = attributes.dataSource;
+        const totalNumber = this.getTotalNumber();
 
-        var start = pageSize * (number - 1) + 1;
-        var end = Math.min(number * pageSize, totalNumber);
+        const start = pageSize * (number - 1) + 1;
+        const end = Math.min(number * pageSize, totalNumber);
 
         return dataSource.slice(start - 1, end);
       },
@@ -583,7 +580,7 @@
 
       // Get locator
       getLocator: function(locator) {
-        var result;
+        let result;
 
         if (typeof locator === 'string') {
           result = locator;
@@ -598,8 +595,8 @@
 
       // Filter data by "locator"
       filterDataByLocator: function(dataSource) {
-        var locator = this.getLocator(attributes.locator);
-        var filteredData;
+        const locator = this.getLocator(attributes.locator);
+        let filteredData;
 
         // Datasource is an Object, use "locator" to locate the true data
         if (Helpers.isObject(dataSource)) {
@@ -607,8 +604,7 @@
             $.each(locator.split('.'), function(index, item) {
               filteredData = (filteredData ? filteredData : dataSource)[item];
             });
-          }
-          catch (e) {
+          } catch (e) {
           }
 
           if (!filteredData) {
@@ -623,7 +619,7 @@
 
       // Parse dataSource
       parseDataSource: function(dataSource, callback) {
-        var self = this;
+        const self = this;
 
         if (Helpers.isObject(dataSource)) {
           callback(attributes.dataSource = self.filterDataByLocator(dataSource));
@@ -647,10 +643,10 @@
       },
 
       callHook: function(hook) {
-        var paginationData = container.data('pagination');
-        var result;
+        const paginationData = container.data('pagination');
+        let result;
 
-        var args = Array.prototype.slice.apply(arguments);
+        const args = Array.prototype.slice.apply(arguments);
         args.shift();
 
         if (attributes[hook] && $.isFunction(attributes[hook])) {
@@ -671,8 +667,8 @@
       },
 
       observer: function() {
-        var self = this;
-        var el = self.model.el;
+        const self = this;
+        const el = self.model.el;
 
         // Go to specified page number
         container.on(eventPrefix + 'go', function(event, pageNumber, done) {
@@ -689,8 +685,8 @@
 
         // Page number button click
         el.delegate('.J-paginationjs-page', 'click', function(event) {
-          var current = $(event.currentTarget);
-          var pageNumber = $.trim(current.attr('data-num'));
+          const current = $(event.currentTarget);
+          const pageNumber = $.trim(current.attr('data-num'));
 
           if (!pageNumber || current.hasClass(attributes.disableClassName) || current.hasClass(attributes.activeClassName)) return;
 
@@ -707,8 +703,8 @@
 
         // Previous button click
         el.delegate('.J-paginationjs-previous', 'click', function(event) {
-          var current = $(event.currentTarget);
-          var pageNumber = $.trim(current.attr('data-num'));
+          const current = $(event.currentTarget);
+          const pageNumber = $.trim(current.attr('data-num'));
 
           if (!pageNumber || current.hasClass(attributes.disableClassName)) return;
 
@@ -725,8 +721,8 @@
 
         // Next button click
         el.delegate('.J-paginationjs-next', 'click', function(event) {
-          var current = $(event.currentTarget);
-          var pageNumber = $.trim(current.attr('data-num'));
+          const current = $(event.currentTarget);
+          const pageNumber = $.trim(current.attr('data-num'));
 
           if (!pageNumber || current.hasClass(attributes.disableClassName)) return;
 
@@ -743,7 +739,7 @@
 
         // Go button click
         el.delegate('.J-paginationjs-go-button', 'click', function(event) {
-          var pageNumber = $('.J-paginationjs-go-pagenumber', el).val();
+          const pageNumber = $('.J-paginationjs-go-pagenumber', el).val();
 
           // Before Go button clicked
           if (self.callHook('beforeGoButtonOnClick', event, pageNumber) === false) return false;
@@ -757,7 +753,7 @@
         // go input enter
         el.delegate('.J-paginationjs-go-pagenumber', 'keyup', function(event) {
           if (event.which === 13) {
-            var pageNumber = $(event.currentTarget).val();
+            const pageNumber = $(event.currentTarget).val();
 
             // Before Go input enter
             if (self.callHook('beforeGoInputOnEnter', event, pageNumber) === false) return false;
@@ -813,8 +809,8 @@
         });
 
         // Whether to load the default page
-        var validTotalPage = Math.max(self.getTotalPage(), 1)
-        var defaultPageNumber = attributes.pageNumber;
+        const validTotalPage = Math.max(self.getTotalPage(), 1);
+        let defaultPageNumber = attributes.pageNumber;
         // Default pageNumber should be 1 when totalNumber is dynamic
         if (self.isDynamicTotalNumber) {
           defaultPageNumber = 1;
@@ -822,7 +818,7 @@
         if (attributes.triggerPagingOnInit) {
           container.trigger(eventPrefix + 'go', Math.min(defaultPageNumber, validTotalPage));
         }
-      }
+      },
     };
 
     // Pagination has been initialized
@@ -833,7 +829,7 @@
         container.trigger.call(this, eventPrefix + 'go', options, arguments[1]);
         return this;
       } else if (typeof options === 'string') {
-        var args = Array.prototype.slice.apply(arguments);
+        const args = Array.prototype.slice.apply(arguments);
         args[0] = eventPrefix + args[0];
 
         switch (options) {
@@ -889,14 +885,14 @@
 
     // Data source
     // Array | String | Function | Object
-    //dataSource: '',
+    // dataSource: '',
 
     // String | Function
-    //locator: 'data',
+    // locator: 'data',
 
     // Find totalNumber from remote response, the totalNumber will be ignored when totalNumberLocator is specified
     // Function
-    //totalNumberLocator: function() {},
+    // totalNumberLocator: function() {},
 
     // Total entries
     totalNumber: 0,
@@ -943,7 +939,7 @@
     goButtonText: 'Go',
 
     // Additional className for Pagination element
-    //className: '',
+    // className: '',
 
     classPrefix: 'paginationjs',
 
@@ -953,7 +949,7 @@
     // Default disable class
     disableClassName: 'disabled',
 
-    //ulClassName: '',
+    // ulClassName: '',
 
     // Whether to insert inline style
     inlineStyle: true,
@@ -973,12 +969,12 @@
     // Auto hide next button when current page is the last page
     autoHideNext: false,
 
-    //header: '',
+    // header: '',
 
-    //footer: '',
+    // footer: '',
 
     // Aliases for custom pagination parameters
-    //alias: {},
+    // alias: {},
 
     // Whether to trigger pagination at initialization
     triggerPagingOnInit: true,
@@ -991,7 +987,7 @@
     showLastOnEllipsisShow: true,
 
     // Pagination callback
-    callback: function() {}
+    callback: function() {},
   };
 
   // Hook register
@@ -1004,8 +1000,8 @@
       throwError('callback must be a function.');
     }
 
-    var container = $(this);
-    var paginationData = container.data('pagination');
+    const container = $(this);
+    let paginationData = container.data('pagination');
 
     if (!paginationData) {
       container.data('pagination', {});
@@ -1014,10 +1010,9 @@
 
     !paginationData.hooks && (paginationData.hooks = {});
 
-    //paginationData.hooks[hook] = callback;
+    // paginationData.hooks[hook] = callback;
     paginationData.hooks[hook] = paginationData.hooks[hook] || [];
     paginationData.hooks[hook].push(callback);
-
   };
 
   // Static method
@@ -1026,7 +1021,7 @@
       throwError('Requires two parameters.');
     }
 
-    var container;
+    let container;
 
     // 'selector' is a jQuery object
     if (typeof selector !== 'string' && selector instanceof jQuery) {
@@ -1086,7 +1081,7 @@
 
   // uninstall plugin
   function uninstallPlugin(target) {
-    var events = ['go', 'previous', 'next', 'disable', 'enable', 'refresh', 'show', 'hide', 'destroy'];
+    const events = ['go', 'previous', 'next', 'disable', 'enable', 'refresh', 'show', 'hide', 'destroy'];
 
     // off events of old instance
     $.each(events, function(index, value) {
@@ -1102,7 +1097,7 @@
 
   // Object type detection
   function getObjectType(object, tmp) {
-    return ( (tmp = typeof(object)) == "object" ? object == null && "null" || Object.prototype.toString.call(object).slice(8, -1) : tmp ).toLowerCase();
+    return ( (tmp = typeof(object)) == 'object' ? object == null && 'null' || Object.prototype.toString.call(object).slice(8, -1) : tmp ).toLowerCase();
   }
 
   $.each(['Object', 'Array', 'String'], function(index, name) {
@@ -1119,5 +1114,4 @@
       return $;
     });
   }
-
 })(this, window.jQuery);

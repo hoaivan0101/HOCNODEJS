@@ -1,27 +1,27 @@
-const express = require('express')
-var router = express.Router()
-var datas = require('./data/job_data')
-var jwt = require('jsonwebtoken')
+const express = require('express');
+const router = express.Router();
+const datas = require('./data/job_data');
+const jwt = require('jsonwebtoken');
 
-router.get('/', function (req, res, next) {
-  var token = req.cookies;
+router.get('/', function(req, res, next) {
+  const token = req.cookies;
   try {
-    var result = jwt.verify(token.token,'pass');
-    next()
+    const result = jwt.verify(token.token, 'pass');
+    next();
   } catch (error) {
     console.log(error);
-    res.redirect('/')
+    res.redirect('/');
   }
 },
-  function (req, res, next) {
-    res.sendfile('todo_index.html')
-  })
+function(req, res, next) {
+  res.sendfile('todo_index.html');
+});
 
-router.get('/getdata', function (req, res) {
+router.get('/getdata', function(req, res) {
   datas.find()
-    .then(data => {
-      res.json(data)
-    })
-})
+      .then((data) => {
+        res.json(data);
+      });
+});
 
 module.exports = router;

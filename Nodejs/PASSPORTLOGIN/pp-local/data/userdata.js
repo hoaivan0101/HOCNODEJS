@@ -1,23 +1,23 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/Users', {
-    useNewUrlParser:true,
-    useUnifiedTopology:true
-})
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
-var AccountModel = new Schema({
-    username:String,
-    password:String,
-    role:String
-},{
-  collection:"Lists"
-})
+const AccountModel = new Schema({
+  username: String,
+  password: String,
+  role: String,
+}, {
+  collection: 'Lists',
+});
 
-var Data = mongoose.model('Lists',AccountModel);
+const Data = mongoose.model('Lists', AccountModel);
 
 module.exports=Data;
 
@@ -30,7 +30,7 @@ module.exports=Data;
 
 // const Schema = mongoose.Schema;
 // const ObjectId = Schema.ObjectId;
- 
+
 // const Users = new Schema({
 //   username: String,
 //   password: String,

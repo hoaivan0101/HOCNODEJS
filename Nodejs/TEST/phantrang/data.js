@@ -2,20 +2,20 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/Users', {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
- 
+
 const Users = new Schema({
   name: String,
   age: String,
-},{
-    collection:'Lists'
+}, {
+  collection: 'Lists',
 });
 
-var Listusers = mongoose.model('Lists',Users);    
+const Listusers = mongoose.model('Lists', Users);
 
 module.exports = Listusers;
 

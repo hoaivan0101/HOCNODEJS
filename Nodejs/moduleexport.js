@@ -1,4 +1,4 @@
 console.log('sub');
 module.exports = {
-    name:'HoaiVan'
-}
+  name: 'HoaiVan',
+};

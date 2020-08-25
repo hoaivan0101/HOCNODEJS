@@ -1,14 +1,14 @@
-const express = require('express')
-const app = express()
-var router = require('./router')
+const express = require('express');
+const app = express();
+const router = require('./router');
 
 
-app.use('/public',express.static('./public'))
-app.get('/',function(req,res){
-    res.json('HTML')
-})
+app.use('/public', express.static('./public'));
+app.get('/', function(req, res) {
+  res.json('HTML');
+});
 
-app.use('/',router)
+app.use('/', router);
 
-app.listen(3000)
+app.listen(3000);
 

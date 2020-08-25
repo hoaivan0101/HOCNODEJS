@@ -1,21 +1,21 @@
-const express = require('express')
-var app = express()
-var user_router = require('./user_router')
-var todo_router = require('./todo_router')
-var cookieParser = require('cookie-parser')
- 
-app.use(cookieParser())
+const express = require('express');
+const app = express();
+const user_router = require('./user_router');
+const todo_router = require('./todo_router');
+const cookieParser = require('cookie-parser');
 
-app.use('/public',express.static('public'))
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
+app.use(cookieParser());
 
-app.get('/',function(req,res){
-    res.sendfile('index.html')
-})
+app.use('/public', express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
-app.use('/Todo',todo_router)
-app.use('/User',user_router)
+app.get('/', function(req, res) {
+  res.sendfile('index.html');
+});
+
+app.use('/Todo', todo_router);
+app.use('/User', user_router);
 
 
-app.listen(8080)
+app.listen(8080);

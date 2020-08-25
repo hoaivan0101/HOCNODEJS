@@ -1,20 +1,20 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/Users', {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
- 
-var job1 = new Schema({
-    name:String,
-    password:String,
-})
 
-var listjob1 = mongoose.model('accounts',job1)
+const job1 = new Schema({
+  name: String,
+  password: String,
+});
 
-module.exports = listjob1
+const listjob1 = mongoose.model('accounts', job1);
+
+module.exports = listjob1;
 
 
