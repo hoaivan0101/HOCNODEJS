@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 const express = require('express');
 
 const router = express.Router();
@@ -40,5 +41,6 @@ router.delete('/data/:id', function(req, res) {
         res.json(err);
       });
 });
+
 
 module.exports = router;
