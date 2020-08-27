@@ -16,5 +16,3 @@ const job = new Schema({
 const listjob = mongoose.model('users', job);
 
 module.exports = listjob;
-
-
