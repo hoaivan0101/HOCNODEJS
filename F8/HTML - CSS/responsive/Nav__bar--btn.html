@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    * {
+        margin: 0px;
+        width: 100%;
+    }
+
+    .container {
+        display: flex;
+        width: 100%;
+    }
+
+    .navbarPc {
+        height: 50px;
+        width: 100%;
+        background: midnightblue;
+        color: white;
+        display: flex;
+    }
+
+    .navbar__lists {
+        list-style: none;
+        width: 100%;
+        display: flex;
+    }
+
+    .navbar__link {
+        width: 30%;
+        color: white;
+    }
+
+    .navbar__icon {
+        width: 30px;
+        display: none;
+        color: white;
+    }
+
+
+
+    .navbarMobile {
+        transform: translateX(-100%);
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        max-width: 200px;
+        background: white;
+        opacity: 0;
+        transition: transform 0.3s, opacity linear 0.2s;
+    }
+
+    .navbar__overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: none;
+        animation: FadeIn linear 0.2s;
+    }
+
+    .navbarMobile--lists {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        color: red;
+    }
+
+    .navbarMobile--link {
+        height: 40px;
+    }
+
+    .navbarMobile--closed {
+        width: 30px;
+        height: 30px;
+        color: black;
+        position: absolute;
+        top: 0;
+        right: 5px;
+    }
+
+    .navbarMobile_checkbox {
+        margin-left: 500px;
+    }
+
+    @keyframes FadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .navbarMobile_checkbox:checked~.navbar__overlay {
+        display: block;
+    }
+
+    .navbarMobile_checkbox:checked~.navbarMobile {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+
+    @media screen and (max-width: 1024px) {
+        .navbar__icon {
+            display: block;
+        }
+
+        .navbar__lists {
+            display: none;
+        }
+
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbarPc">
+            <ul class="navbar__lists">
+                <li><a href="" class="navbar__link">ABC</a></li>
+                <li><a href="" class="navbar__link">ABC</a></li>
+                <li><a href="" class="navbar__link">ABC</a></li>
+                <li><a href="" class="navbar__link">ABC</a></li>
+                <li><a href="" class="navbar__link">ABC</a></li>
+
+            </ul>
+            <label class="navbar__icon" for="navbarMobile_checkbox">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars"
+                    class="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512">
+                    <path fill="currentColor"
+                        d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z">
+                    </path>
+                </svg>
+            </label>
+        </div>
+    </div>
+    <input type="checkbox" class="navbarMobile_checkbox" id="navbarMobile_checkbox" hidden>
+    <label class="navbar__overlay" for="navbarMobile_checkbox"></label>
+    <div class="navbarMobile">
+        <label class="navbarMobile--closed" for="navbarMobile_checkbox">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars"
+                class="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512">
+                <path fill="currentColor"
+                    d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z">
+                </path>
+            </svg>
+        </label>
+        <ul class="navbarMobile--lists">
+            <li class="navbarMobile--link">navbarMobile--lists</li>
+            <li class="navbarMobile--link">navbarMobile--lists</li>
+            <li class="navbarMobile--link">navbarMobile--lists</li>
+            <li class="navbarMobile--link">navbarMobile--lists</li>
+            <li class="navbarMobile--link">navbarMobile--lists</li>
+
+        </ul>
+    </div>
+</body>
+
+</html>

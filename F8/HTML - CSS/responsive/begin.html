@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        display: flex;
+        width: 100%;
+    }
+
+    .container1 {
+        display: flex;
+        width: 100%;
+    }
+
+    .product-img {
+        width: 60%;
+    }
+
+    .product-info {
+        width: 40%;
+    }
+
+    .content {
+        width: 80%;
+        display: flex;
+    }
+
+
+    .ABC {
+        width: 25%
+    }
+
+    @media screen and (max-width: 739px) {
+        .container {
+            flex-direction: column;
+        }
+    }
+
+    @media screen and (min-width: 740px) and (max-width: 1023px) {
+        .container {
+            flex-direction: column;
+        }
+
+        .ABC {
+            width: 33.33%;
+        }
+
+
+    }
+</style>
+
+<body>
+    <h1>MEDIA SCREEN</h1>
+    <div class="container">
+        <img src="../../../Picture/ảnh rừng.jpg" alt="" class="product-img">
+        <div class="product-info">
+            <div>ABC</div>
+            <div>ABC</div>
+            <div>ABC</div>
+        </div>
+    </div>
+    <div class="container1">
+        <div class="Category">
+            Category
+        </div>
+        </ul>
+    </div>
+</body>
+
+</html>
