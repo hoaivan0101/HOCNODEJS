@@ -6,9 +6,6 @@ const passport = require('passport');
 
 const LocalStrategy = require('passport-local').Strategy;
 
-router.use(require('cookie-parser')());
-router.use(passport.initialize());
-router.use(passport.session());
 router.use(
     require('express-session')({
       secret: 'keyboard cat',
@@ -16,13 +13,19 @@ router.use(
       saveUninitialized: true,
     }),
 );
+router.use(passport.initialize());
+router.use(require('cookie-parser')());
+router.use(passport.session());
 
 passport.serializeUser(function(user, done) {
-  done(null, user);
+  done(null, user.id);
 });
 
-passport.deserializeUser(function(user, done) {
-  done(null, user);
+passport.deserializeUser(function(id, done) {
+  console.log('...........', id);
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
 });
 
 /* GET users listing. */
@@ -57,7 +60,6 @@ router.post('/', function(req, res, next) {
     if (!user) {
       return res.redirect('/login');
     }
-    console.log(user);
     req.logIn(user, function(err) {
       if (err) {
         return next(err);
@@ -65,6 +67,16 @@ router.post('/', function(req, res, next) {
       return res.json(user);
     });
   })(req, res, next);
+});
+
+router.get('/ok', function(req, res) {
+  console.log(req.session.passport.user);
+  if (req.isAuthenticated()) {
+    res.json('abc');
+  } else {
+    console.log(req.isAuthenticated());
+    res.json('err');
+  }
 });
 
 module.exports = router;
