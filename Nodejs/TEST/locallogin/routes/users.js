@@ -13,6 +13,7 @@ router.use(
       saveUninitialized: true,
     }),
 );
+
 router.use(passport.initialize());
 router.use(require('cookie-parser')());
 router.use(passport.session());
@@ -72,9 +73,9 @@ router.post('/', function(req, res, next) {
 router.get('/ok', function(req, res) {
   console.log(req.session.passport.user);
   if (req.isAuthenticated()) {
+    console.log(req.session);
     res.json('abc');
   } else {
-    console.log(req.isAuthenticated());
     res.json('err');
   }
 });

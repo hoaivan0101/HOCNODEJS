@@ -8,7 +8,11 @@ $.ajax({
       for (i of arr) {
         $('.content__job').append(
             `<div class="flex content__job--items ${i._id}">
+            <div class="content__main">
             <p>${i.title}</p>
+            <p>${i.date}</p>
+            <p>${i.status}</p>
+            </div>
             <input type="text" placeholder="${i.title}" 
             class=" content__job--input hidden">
             <button id="${i._id}"class="delete__btn">Del</button>
@@ -34,12 +38,12 @@ $.ajax({
       // eslint-disable-next-line no-invalid-this
         const fixId = $(this).attr('id').split('-')[1];
         console.log(fixId);
-        if ($('.' + fixId + '>p').hasClass('hidden')) {
-          $('.' + fixId + '>p').removeClass('hidden');
+        if ($('.' + fixId + '>.content__main').hasClass('hidden')) {
+          $('.' + fixId + '>.content__main').removeClass('hidden');
           $('.' + fixId + '>input').addClass('hidden');
           $('.' + fixId + '>.confirm').addClass('hidden');
         } else {
-          $('.' + fixId + '>p').addClass('hidden');
+          $('.' + fixId + '>.content__main').addClass('hidden');
           $('.' + fixId + '>input').removeClass('hidden');
           $('.' + fixId + '>.confirm').removeClass('hidden');
         }
@@ -80,7 +84,11 @@ $('.add_btn').click(function() {
   }).then((data) => {
     $('.content__job').append(
         `<div class="flex content__job--items ${data._id}">
+      <div class="content__main">
       <p>${data.title}</p>
+      <p>${data.date}</p>
+      <p>${data.status}</p>
+      </div>
       <input type="text" placeholder="${data.title}" 
       class=" content__job--input hidden">
       <button id="${data._id}"class="delete__btn">Del</button>

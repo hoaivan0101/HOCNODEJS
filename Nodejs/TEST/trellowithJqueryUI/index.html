@@ -2,15 +2,44 @@
 <html>
 
 <head>
-  <title>Trello</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Sortable - Portlets</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
   <link rel="stylesheet" href="./public/bootstrap-4.5.0-dist/css/bootstrap.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="./public/css/GRID.css">
   <link rel="stylesheet" href="./public/css/main.css">
-  <script src="./public/js/jquery-3.5.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $(function () {
+      $(".column").sortable({
+        connectWith: ".column",
+        handle: ".portlet-header",
+        cancel: ".portlet-toggle",
+        placeholder: "portlet-placeholder ui-corner-all"
+      });
+
+      $(".portlet")
+        .addClass("ui-widget ui-widget-content ui-helper-clearfix ui-corner-all")
+        .find(".portlet-header")
+        .addClass("ui-widget-header ui-corner-all")
+        .prepend("<span class='ui-icon ui-icon-minusthick portlet-toggle'></span>");
+
+      $(".portlet-toggle").on("click", function () {
+        var icon = $(this);
+        icon.toggleClass("ui-icon-minusthick ui-icon-plusthick");
+        icon.closest(".portlet").find(".portlet-content").toggle();
+      });
+    });
+  </script>
 </head>
 
+
 <body>
-  <div class="grid wide">
+  <!-- <div class="grid wide">
     <div class="row">
       <div class="col l-4">
         <div class="content">
@@ -19,7 +48,6 @@
           <div class="maintest">
             <input type="text" placeholder="Title" class="title" name="title">
             <input type="text" placeholder="Deadline" class="date" name="date">
-            <!-- <input type="text" placeholder="Status" class="status" name="status"> -->
             <select name="status" class="status" id="status">
               <option value="Normal" selected>Normal</option>
               <option value="Important">Important</option>
@@ -33,9 +61,41 @@
       <div class="col l-4"></div>
       <div class="col l-4"></div>
     </div>
+  </div> -->
+
+
+  <div class="column" id="plan">
+  </div>
+
+  <div class="column" id="doing">
+  </div>
+
+  <div class="column" id="done">
   </div>
 
 </body>
+<script>
+  $(function () {
+    $(".column").sortable({
+      connectWith: ".column",
+      handle: ".portlet-header",
+      cancel: ".portlet-toggle",
+      placeholder: "portlet-placeholder ui-corner-all"
+    });
+
+    $(".portlet")
+      .addClass("ui-widget ui-widget-content ui-helper-clearfix ui-corner-all")
+      .find(".portlet-header")
+      .addClass("ui-widget-header ui-corner-all")
+      .prepend("<span class='ui-icon ui-icon-minusthick portlet-toggle'></span>");
+
+    $(".portlet-toggle").on("click", function () {
+      var icon = $(this);
+      icon.toggleClass("ui-icon-minusthick ui-icon-plusthick");
+      icon.closest(".portlet").find(".portlet-content").toggle();
+    });
+  });
+</script>
 <script src="./public/js/main.js"></script>
 
 </html>

@@ -2,11 +2,11 @@ $.ajax({
   url: '/api',
   type: 'GET',
 })
-    .then((data)=>{
-      for (let i=0; i<data.length; i++) {
+    .then((data) => {
+      for (let i = 0; i < data.length; i++) {
         $('#tbody').append(`          
                 <tr>
-                    <td><strong>${i+1}</td>
+                    <td><strong>${i + 1}</td>
                     <td><strong>${data[i].name}</td>
                     <td>${data[i].date}</td>
                     <td><button id="${data[i]._id}">Delete</button></td>
@@ -27,7 +27,7 @@ $('#btn').click(function() {
       date: $('#date').val(),
     },
   })
-      .then((data)=>{
+      .then((data) => {
         $('#tbody').append(`          
             <tr>
                 <td><strong></td>
@@ -37,9 +37,7 @@ $('#btn').click(function() {
             </tr>
         `);
       })
-      .catch((err) =>{
+      .catch((err) => {
         alert('THAT BAI');
       });
 });
-
-

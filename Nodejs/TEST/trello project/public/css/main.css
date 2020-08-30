@@ -15,6 +15,9 @@
     background: gray;
     position: relative;
 }
+.col{
+    background:rgb(38, 136, 143);
+}
 
 .hidden{
     display: none;
