@@ -1,0 +1,52 @@
+Express 4 and Socket.io: Passing socket.io to routes - app.js
+
+var app = express();
+app.io = require('socket.io')();
+
+var routes = require('./routes/index')(app.io);
+
+app.use('/', routes);
+
+-------------------------------------
+index.js
+
+//Normal code here
+
+//then at the bottom:
+
+module.exports = function (io) {
+    //Socket.IO
+    io.on('connection', function (socket) {
+        console.log('User has connected to Index');
+        //ON Events
+        socket.on('admin', function () {
+            console.log('Successful Socket Test');
+        });
+
+        //End ON Events
+    });
+    return router;
+};
+
+---------------------------------------
+
+
+www
+/**
+ * Create HTTP server
+ */
+
+var server = http.createServer(app);
+app.io.attach(server);
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+
+/**
+ * Normalize a port into a number, string, or false.
+ */

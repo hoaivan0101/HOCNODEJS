@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Socket.IO chat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'roboto', sans-serif
+        }
+
+        form {
+            background: #000;
+            padding: 3px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        form input {
+            border: 0;
+            padding: 10px;
+            width: 90%;
+            margin-right: .5%;
+        }
+
+        form button {
+            width: 9%;
+            background: rgb(130, 224, 255);
+            border: none;
+            padding: 10px;
+        }
+
+
+        .sender {
+            display: block;
+            max-width: 200px;
+            border-radius: 5px 0 0 5px;
+            background: rgba(59, 235, 182, 0.3);
+            color: red;
+            height: auto;
+        }
+
+        .receiver {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="messages"></div>
+    <div id="notification"></div>
+    <div id="joinRoom">Join</div>
+    <div id="leaveRoom">Leave</div>
+    <form action="">
+        <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+</body>
+<script src="./public/js/jquery-3.5.1.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+
+    var socket = io();
+    $('form').submit(function () {
+        var p = `<div class="sender">${$("#m").val()}</div>`;
+        socket.emit("chat message", $("#m").val());
+        $('#messages').append(p)
+        $('#m').val("");
+        window.scrollTo(0, document.body.scrollHeight);
+        return false;
+    });
+    socket.on("chat message", function (msg) {
+        var p = `<div class="receiver">${msg}</div>`;
+        $('#messages').append(p);
+        window.scrollTo(0, document.body.scrollHeight);
+    });
+
+    // ----------------------------------------------------------------
+
+</script>
+
+</html>

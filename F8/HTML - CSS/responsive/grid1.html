@@ -11,12 +11,37 @@
             box-sizing: border-box;
         }
 
-        .col {
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            margin: 0;
+        }
+
+        .course {
             text-align: center;
-            background-color: #ccc;
-            background-clip: content-box;
-            margin-top: 8px;
-            margin-bottom: 8px;
+            background: orange;
+            height: 150px;
+        }
+
+        h3 {
+            margin: 0;
+            color: white;
+            line-height: 150px;
+        }
+
+        @media (max-width:1023px) {
+            .course {
+                margin-bottom: 8px;
+            }
+        }
+
+        .category {
+            background: green;
+            height: 150px;
         }
     </style>
 </head>
@@ -24,98 +49,33 @@
 <body>
     <div class="grid wide">
         <div class="row">
-            <div class="col l-2 m-4 c-12">
-                <h2>l-2 m-4 c-12</h2>
+            <div class="col l-3 m-0 c-0">
+                <div class="category">
+                    <ul>
+                        <li>HTML/CSS</li>
+                        <li>Javascript</li>
+                        <li>PHP</li>
+                    </ul>
+                </div>
             </div>
-            <div class="col l-2 m-4 c-12">
-                <h2>l-2 m-4 c-12</h2>
-            </div>
-            <div class="col l-2 m-4 c-12">
-                <h2>l-2 m-4 c-12</h2>
-            </div>
-            <div class="col l-2 m-4 c-12">
-                <h2>l-2 m-4 c-12</h2>
-            </div>
-            <div class="col l-2 m-4 c-12">
-                <h2>l-2 m-4 c-12</h2>
-            </div>
-            <div class="col l-2 m-4 c-12">
-                <h2>l-2 m-4 c-12</h2>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col l-3 m-6 c-6">
-                <h2>l-3 m-6 c-6</h2>
-            </div>
-            <div class="col l-3 m-6 c-6">
-                <h2>l-3 m-6 c-6</h2>
-            </div>
-            <div class="col l-3 m-6 c-6">
-                <h2>l-3 m-6 c-6</h2>
-            </div>
-            <div class="col l-3 m-6 c-6">
-                <h2>l-3 m-6 c-6</h2>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col l-4 m-12 c-12">
-                <h2>l-4 m-12 c-12</h2>
-            </div>
-            <div class="col l-4 m-12 c-12">
-                <h2>l-4 m-12 c-12</h2>
-            </div>
-            <div class="col l-4 m-12 c-12">
-                <h2>l-4 m-12 c-12</h2>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col l-6 m-6 c-12">
-                <h2>l-6 m-6 c-12</h2>
-            </div>
-            <div class="col l-6 m-6 c-12">
-                <h2>l-6 m-6 c-12</h2>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col l-12 m-12 c-12">
-                <h2>l-12 m-12 c-12</h2>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col l-4 m-0 c-0">
-                <h2>l-4 m-0 c-0</h2>
-            </div>
-            <div class="col l-8 m-12 c-12">
-                <h2>l-8 m-12 c-12</h2>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col l-8 m-12 c-12">
-                <h2>l-8 m-12 c-12</h2>
-            </div>
-            <div class="col l-4 m-0 c-0">
-                <h2>l-4 m-0 c-0</h2>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col l-4 m-4 c-6">
-                <h2>l-4 m-4 c-6</h2>
-            </div>
-            <div class="col l-4 m-4 c-6 l-o-4 m-o-4">
-                <h2>l-4 m-4 c-6 l-o-4 m-o-4</h2>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col l-4 m-4 c-12 l-o-4 m-o-4">
-                <h2>l-4 m-4 c-12 l-o-4 m-o-4</h2>
+            <div class="col l-9 m-12 c-12">
+                <div class="row">
+                    <div class="col l-4 m-6 c-12">
+                        <div class="course">
+                            <h3>COURSE 1</h3>
+                        </div>
+                    </div>
+                    <div class="col l-4 m-6 c-12">
+                        <div class="course">
+                            <h3>COURSE 1</h3>
+                        </div>
+                    </div>
+                    <div class="col l-4 m-6 c-12">
+                        <div class="course">
+                            <h3>COURSE 1</h3>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

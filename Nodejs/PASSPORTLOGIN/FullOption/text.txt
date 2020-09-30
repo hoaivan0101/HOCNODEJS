@@ -1,0 +1,6 @@
+Client ID
+214057786954-d0f5na6cqtm9thovsim4nr3746b8m9er.apps.googleusercontent.com
+Client secret
+srDab5dCxh4e8ut6WuIN3ZWg
+Creation date
+September 8, 2020 at 2:11:19 PM GMT+7

@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Socket.IO chat</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="text" name="username" id="username">
+    <select id="selectList">
+        <option value="Javascript">Javascript</option>
+        <option value="PHP">PHP</option>
+    </select>
+    <button class="btn">Join Room</button>
+    <button class="Leave_btn">Leave Room</button>
+    <div class="room">
+
+    </div>
+    <div class="message">
+    </div>
+    <form action="">
+        <input type="text" id="texting" name="texting">
+        <button class="text_btn">Input</button>
+    </form>
+</body>
+<script src="./public/js/jquery-3.5.1.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io();
+    $('.btn').click(function () {
+        user = {
+            user: $('#username').val(),
+            room: $('#selectList').val()
+        }
+        socket.emit('joinRoom', user);
+        socket.on('roomUser', function (msg) {
+            var listUser = msg.Arr.filter(item => item.room === $('#selectList').val());
+            $('.room').text('');
+            listUser.forEach(item => {
+                $('.room').append(`<div>${item.user}</div>`)
+            })
+
+        })
+    })
+
+    // message from server
+    socket.on('message', function (msg) {
+        $('.message').append(`<div>${msg}</div>`)
+    })
+
+    // Input Text
+    $('form').submit(function () {
+        var val = $('#texting').val();
+        socket.emit('sendMessage', val);
+        $('#texting').val('');
+        $('.message').append(`<div>${val}</div>`)
+        return false;
+    })
+    socket.on('message1', function (msg) {
+        $('.message').append(`<div>${msg}</div>`)
+    })
+    // ----------------------------------------------------------------
+    // Leave Room
+    $('.Leave_btn').click(function () {
+        console.log($('#username').val());
+        socket.emit('leaveRoom', $('#username').val())
+    })
+</script>
+
+</html>
